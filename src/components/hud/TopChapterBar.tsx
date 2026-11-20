@@ -13,6 +13,7 @@ import {
   Star,
   Trophy,
   Award,
+  LogOut,
   Volume2,
   VolumeX,
   Pause,
@@ -327,6 +328,17 @@ export const TopChapterBar: React.FC<TopChapterBarProps> = ({
           >
             <Trophy className="w-4 h-4" />
           </button>
+
+          {/* Logout Button (login gate) */}
+          <a
+            href="/auth/logout"
+            style={{ textDecoration: 'none' }}
+            className="min-h-[40px] min-w-[40px] p-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl text-slate-200 hover:text-white flex items-center justify-center cursor-pointer shrink-0 transition-colors"
+            title="Sign out"
+            aria-label="Sign out"
+          >
+            <LogOut className="w-4 h-4" />
+          </a>
 
           {/* Mute Button */}
           <button

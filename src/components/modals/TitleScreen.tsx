@@ -11,6 +11,7 @@ import {
   Sparkles,
   Play,
   Award,
+  LogOut,
   BookOpen,
   Lock,
   ArrowLeft,
@@ -95,6 +96,16 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
             <Sparkles className="w-4 h-4 text-cyan-400 shrink-0" />
             <span>Leaderboard</span>
           </button>
+          <a
+            href="/auth/logout"
+            style={{ textDecoration: 'none' }}
+            className="min-h-[44px] text-sm font-bold text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl shadow-md flex items-center gap-2 cursor-pointer transition-colors whitespace-nowrap"
+            title="Sign out"
+            aria-label="Sign out"
+          >
+            <LogOut className="w-4 h-4 text-slate-400 shrink-0" />
+            <span className="hidden sm:inline">Logout</span>
+          </a>
         </div>
       </div>
 
