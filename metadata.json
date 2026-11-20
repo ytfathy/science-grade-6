@@ -1,0 +1,8 @@
+{
+  "name": "MatterQuest: 3D Science Adventure & Laboratory Game",
+  "description": "Interactive gamified 3D science learning adventure for Grade 6 covering HMH Into Science Unit 3: The Structure of Matter with real-time simulations, progressive quizzes, badges, and leaderboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
