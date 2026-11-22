@@ -24,7 +24,11 @@ import {
   RotateCcw,
   Volume2,
   VolumeX,
+  NotebookPen,
+  Box,
 } from 'lucide-react';
+import { LessonSummaryModal } from '../modals/LessonSummaryModal.tsx';
+import { ModelVideoModal } from '../modals/ModelVideoModal.tsx';
 
 interface Quarter2VideoLabProps {
   lessonId: Unit4LessonId;
@@ -54,6 +58,8 @@ export const Quarter2VideoLab: React.FC<Quarter2VideoLabProps> = ({
   const lastHandledLessonIdRef = useRef<Unit4LessonId | null>(null);
   const [currentTime, setCurrentTime] = useState<number>(getUnit4StartSeconds(lessonId));
   const [duration, setDuration] = useState<number>(0);
+  const [showSummary, setShowSummary] = useState(false);
+  const [showModel, setShowModel] = useState(false);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isBuffering, setIsBuffering] = useState<boolean>(true);
   const [videoError, setVideoError] = useState<string | null>(null);
@@ -432,6 +438,33 @@ export const Quarter2VideoLab: React.FC<Quarter2VideoLabProps> = ({
           <h3 className="text-lg font-extrabold text-white leading-snug">{activeLesson.title}</h3>
           <p className="text-base text-slate-200 leading-relaxed">{activeLesson.summary}</p>
         </section>
+
+        <button
+          type="button"
+          onClick={() => {
+            sound.playClick();
+            setShowSummary(true);
+          }}
+          className="min-h-[48px] px-4 py-3 rounded-2xl bg-amber-500/15 hover:bg-amber-500 text-amber-100 hover:text-slate-950 border border-amber-400/50 text-base font-extrabold flex items-center justify-center gap-2 cursor-pointer transition-colors"
+        >
+          <NotebookPen className="w-5 h-5 shrink-0" />
+          <span>Lesson {activeLesson.id} Summary Infographic</span>
+        </button>
+        {showSummary && <LessonSummaryModal lessonId={activeLesson.id} onClose={() => setShowSummary(false)} />}
+
+        <button
+          type="button"
+          onClick={() => {
+            sound.playClick();
+            videoRef.current?.pause(); // don't let the lesson video's sound play under the 3D model
+            setShowModel(true);
+          }}
+          className="min-h-[48px] px-4 py-3 rounded-2xl bg-violet-500/15 hover:bg-violet-500 text-violet-100 hover:text-white border border-violet-400/50 text-base font-extrabold flex items-center justify-center gap-2 cursor-pointer transition-colors"
+        >
+          <Box className="w-5 h-5 shrink-0" />
+          <span>Lesson {activeLesson.id} 3D Model Video</span>
+        </button>
+        {showModel && <ModelVideoModal lessonId={activeLesson.id} onClose={() => setShowModel(false)} />}
 
         {/* Key Takeaways Card */}
         <section className="p-5 rounded-2xl bg-slate-950/75 border border-slate-700/80 flex flex-col gap-3.5">

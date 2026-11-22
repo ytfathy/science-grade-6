@@ -101,3 +101,12 @@ h3 {
     scroll-behavior: auto !important;
   }
 }
+
+/* Handwritten lesson summary infographics (Quarter 2) */
+.lesson-hand {
+  font-family: "Patrick Hand", "Comic Sans MS", cursive;
+}
+.lesson-hand-title {
+  font-family: "Caveat", "Patrick Hand", cursive;
+  font-weight: 700;
+}

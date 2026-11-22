@@ -179,6 +179,24 @@ class SoundEngine {
     osc.stop(now + 0.16);
   }
 
+  /** One gliding tone; used by the Quarter 2 3D model videos (the player has its own sound toggle, so no mute check here). */
+  public playTone(from: number, to: number, seconds: number, type: OscillatorType = 'sine', volume = 0.1) {
+    this.initCtx();
+    if (!this.ctx) return;
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    const now = this.ctx.currentTime;
+    osc.type = type;
+    osc.frequency.setValueAtTime(from, now);
+    osc.frequency.exponentialRampToValueAtTime(to, now + seconds);
+    gain.gain.setValueAtTime(volume, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + seconds);
+    osc.connect(gain);
+    gain.connect(this.ctx.destination);
+    osc.start(now);
+    osc.stop(now + seconds + 0.02);
+  }
+
   public playCathodeZap() {
     if (this.isMuted) return;
     this.initCtx();

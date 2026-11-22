@@ -3,7 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useState } from 'react';
+import { Unit4LessonId } from '../../game/unit4.ts';
+import { LessonSummaryModal } from './LessonSummaryModal.tsx';
+import { ModelVideoModal } from './ModelVideoModal.tsx';
 import { ChapterId, QuarterId } from '../../game/types.ts';
 import { QUARTERS_META } from '../../game/questions.ts';
 import { sound } from '../../game/audio.ts';
@@ -12,6 +15,8 @@ import {
   Play,
   Award,
   LogOut,
+  NotebookPen,
+  Box,
   BookOpen,
   Lock,
   ArrowLeft,
@@ -40,6 +45,8 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
   onOpenBadges,
   onOpenLeaderboard,
 }) => {
+  const [summaryLessonId, setSummaryLessonId] = useState<Unit4LessonId | null>(null);
+  const [modelLessonId, setModelLessonId] = useState<Unit4LessonId | null>(null);
   const currentQuarterMeta = selectedQuarterHub
     ? QUARTERS_META.find((q) => q.id === selectedQuarterHub) ?? QUARTERS_META[0]
     : null;
@@ -402,6 +409,31 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
                           <span>Test</span>
                         </button>
                       </div>
+
+                      {currentQuarterMeta.id === 2 && lesson.available && lesson.id <= 3 && (
+                        <div className="grid grid-cols-2 gap-2 -mt-2">
+                          <button
+                            onClick={() => {
+                              sound.playClick();
+                              setSummaryLessonId(lesson.id as Unit4LessonId);
+                            }}
+                            className="min-h-[44px] px-3 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-100 hover:text-slate-950 border border-amber-400/50 text-sm font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                          >
+                            <NotebookPen className="w-4 h-4 shrink-0" />
+                            <span>Summary</span>
+                          </button>
+                          <button
+                            onClick={() => {
+                              sound.playClick();
+                              setModelLessonId(lesson.id as Unit4LessonId);
+                            }}
+                            className="min-h-[44px] px-3 py-2 rounded-xl bg-violet-500/15 hover:bg-violet-500 text-violet-100 hover:text-white border border-violet-400/50 text-sm font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                          >
+                            <Box className="w-4 h-4 shrink-0" />
+                            <span>3D Model Video</span>
+                          </button>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -410,6 +442,11 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
           </div>
         )
       )}
+
+      {summaryLessonId && (
+        <LessonSummaryModal lessonId={summaryLessonId} onClose={() => setSummaryLessonId(null)} />
+      )}
+      {modelLessonId && <ModelVideoModal lessonId={modelLessonId} onClose={() => setModelLessonId(null)} />}
 
       {/* Quiet Footer */}
       <footer className="text-center text-sm text-slate-300 font-medium pt-4 shrink-0">
