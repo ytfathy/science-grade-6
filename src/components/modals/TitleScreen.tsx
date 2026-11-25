@@ -327,7 +327,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
                     {currentQuarterMeta.available
                       ? '67 Questions · No Timer'
                       : currentQuarterMeta.testAvailable
-                      ? '13 Lesson 1 Questions · No Timer'
+                      ? '24 Lesson 1 Questions · No Timer'
                       : 'Lesson Quiz · Coming Soon'}
                   </div>
                 </div>

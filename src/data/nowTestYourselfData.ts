@@ -1760,13 +1760,13 @@ export const QUARTER2_NOW_TEST_QUESTIONS: NowTestQuestion[] = [
       'colour Change',
       'size Change',
       'Formation of bubbles',
-      'Melting',
+      'state change',
     ],
     optionLetters: ['A', 'B', 'C', 'D', 'E'],
     correctIndices: [0, 1, 3],
     answerRaw: 'A. odour Change, B. colour Change, D. Formation of bubbles',
     explanation:
-      'Odor change, unexpected color change, and formation of gas bubbles are signs of a chemical reaction. Size change and melting are physical changes.',
+      'Odor change, unexpected color change, and formation of gas bubbles are signs of a chemical reaction. Size change and state change (such as melting) are physical changes.',
     isMultiSelect: true,
   },
   {
@@ -1920,6 +1920,160 @@ export const QUARTER2_NOW_TEST_QUESTIONS: NowTestQuestion[] = [
       'Solubility varies from substance to substance; while salt and sugar dissolve in water, substances such as sand, oil, and plastic do not.',
     isMultiSelect: false,
   },
+  ...([
+    {
+      questionText: 'The substances before the chemical reaction is called.......',
+      options: ['products', 'reactants'],
+      correctIndices: [1],
+      explanation:
+        'Reactants are the starting substances in a chemical reaction. They are written on the left side of the arrow in a chemical equation.',
+    },
+    {
+      questionText: 'The substances after the chemical reaction is called ........',
+      options: ['product', 'reactant'],
+      correctIndices: [0],
+      explanation:
+        'Products are the new substances formed by a chemical reaction. They are written on the right side of the arrow. Reactants are the substances you start with.',
+    },
+    {
+      questionText:
+        'Experiment 1: Grinding Coal.\n\nWhat type of change happens to the coal?',
+      imageSrc: '/assets/aistudio/q2_l1_coal_grinding.jpg',
+      imageAlt: 'Lumps of coal next to a bowl of ground coal powder',
+      options: [
+        'Physical change, because the coal only changed size and shape and is still coal',
+        'Chemical change, because a new substance formed',
+        'Chemical change, because the coal changed into a powder',
+      ],
+      correctIndices: [0],
+      explanation:
+        'Grinding is a physical change. The powder is still black coal with the same identity: there is no gas, no new color, no heat or light, and no new substance. Only the size of the pieces changed.',
+    },
+    {
+      questionText:
+        'Experiment 2: Sand and Iron Filings.\n\nWhat type of change happens when sand and iron filings are mixed together?',
+      imageSrc: '/assets/aistudio/q2_l1_sand_iron_magnet.jpg',
+      imageAlt: 'A hand holding a magnet over a pile of sand and iron filings',
+      options: [
+        'Physical change, because no new substance forms and a magnet can separate them again',
+        'Chemical change, because the iron filings and sand form a new substance',
+        'Chemical change, because the mixture cannot be separated',
+      ],
+      correctIndices: [0],
+      explanation:
+        'Mixing sand and iron filings makes a mixture, which is a physical change. No new substance forms: the iron is still iron and the sand is still sand, so a magnet can pull the iron filings back out.',
+    },
+    {
+      questionText:
+        'Experiment 3: Baking Soda and Vinegar.\n\nWhat type of change occurs when baking soda and vinegar are combined?',
+      imageSrc: '/assets/aistudio/q2_l1_baking_soda_vinegar.jpg',
+      imageAlt: 'White foam overflowing from a cup after baking soda and vinegar are mixed',
+      options: [
+        'Physical change, because the baking soda just dissolves in the vinegar',
+        'Chemical change, because fizzing and bubbles of a new gas (carbon dioxide) form',
+        'Physical change, because nothing new is formed',
+      ],
+      correctIndices: [1],
+      explanation:
+        'Combining baking soda and vinegar is a chemical change. The fizzing and gas bubbles are evidence that a new substance (carbon dioxide gas) is produced.',
+    },
+    {
+      questionText: 'Exit Ticket: Which statement best describes a chemical change?',
+      options: [
+        'A substance changes only its shape.',
+        'One or more new substances with different properties form.',
+        'A substance changes from a solid to a liquid.',
+        'The substance is broken into smaller pieces.',
+      ],
+      correctIndices: [1],
+      explanation:
+        'In a chemical change, one or more new substances with different properties form. Changing shape, changing state (solid to liquid) and breaking into pieces are physical changes.',
+    },
+    {
+      questionText:
+        'Exit Ticket: In a chemical reaction, what are the original substances called? What are the new substances formed called?',
+      options: [
+        'Original substances: products · New substances: reactants',
+        'Original substances: reactants · New substances: products',
+        'Original substances: mixtures · New substances: solutions',
+        'Original substances: atoms · New substances: elements',
+      ],
+      correctIndices: [1],
+      explanation:
+        'The original (starting) substances are called reactants. The new substances formed are called products: reactants → products.',
+    },
+    {
+      questionText:
+        'Exit Ticket: The metal bucket was once new, but now it has a dark reddish-brown coating. What change has happened to the metal?',
+      imageSrc: '/assets/aistudio/q2_l1_rusty_bucket.jpg',
+      imageAlt: 'An old rusty metal bucket with holes hanging from a wooden branch',
+      options: [
+        'A physical change: the metal only changed color',
+        'A chemical change: the iron reacted with oxygen and water to form a new substance, rust',
+        'A change of state: the metal melted',
+        'No change happened to the metal',
+      ],
+      correctIndices: [1],
+      explanation:
+        'The reddish-brown coating is rust (iron oxide). Rusting is a chemical change because iron reacts with oxygen and water to form a new substance with different properties.',
+    },
+    {
+      questionText:
+        'Exit Ticket: A student mixes two substances. No new substance forms. Has a chemical reaction definitely taken place?',
+      options: [
+        'Yes, because two substances were mixed',
+        'No, because a chemical reaction must form a new substance; this is only a physical change',
+        'Yes, because mixing always changes the identity of the substances',
+      ],
+      correctIndices: [1],
+      explanation:
+        'A chemical reaction always produces at least one new substance. If no new substance forms, the substances only mixed, which is a physical change.',
+    },
+    {
+      questionText: 'Exit Ticket: During a chemical reaction, what happens to the atoms in the reactants?',
+      options: [
+        'They disappear.',
+        'They are changed into completely different atoms.',
+        'They rearrange and form new particles.',
+        'They are created from nothing.',
+      ],
+      correctIndices: [2],
+      explanation:
+        'Atoms are never created or destroyed in a chemical reaction. The bonds between them break and the same atoms rearrange to form the new particles of the products.',
+    },
+    {
+      questionText:
+        'Exit Ticket: The bucket in the picture was once a new metal bucket. Select ALL the changes that may have happened.',
+      imageSrc: '/assets/aistudio/q2_l1_rusty_bucket.jpg',
+      imageAlt: 'An old rusty metal bucket with holes hanging from a wooden branch',
+      options: [
+        'Parts of the bucket broke off.',
+        'The metal was dented and bent.',
+        'The metal changed to a different state.',
+        'The color changed to a dark, reddish-brown color.',
+        'A new substance (rust) formed on the metal.',
+      ],
+      correctIndices: [0, 1, 3, 4],
+      explanation:
+        'Pieces broke off and the metal was dented and bent (physical changes), the color changed to reddish-brown, and a new substance, rust, formed (chemical change). The metal did not change state: it is still a solid.',
+    },
+  ] as const).map(
+    (q, i): NowTestQuestion => ({
+      id: `q2_lesson1_q${14 + i}`,
+      lessonKey: 'lesson1',
+      lessonTitle: 'Unit 4 · Lesson 1: Chemical Reactions',
+      lessonBadge: 'Quarter 2 · Lesson 1 · Chemical Reactions',
+      qNum: 14 + i,
+      questionText: q.questionText,
+      ...('imageSrc' in q ? { imageSrc: q.imageSrc, imageAlt: q.imageAlt } : {}),
+      options: [...q.options],
+      optionLetters: q.options.map((_, j) => String.fromCharCode(65 + j)),
+      correctIndices: [...q.correctIndices],
+      answerRaw: q.correctIndices.map((j) => `${String.fromCharCode(65 + j)}. ${q.options[j]}`).join(', '),
+      explanation: q.explanation,
+      isMultiSelect: q.correctIndices.length > 1,
+    })
+  ),
 ];
 
 export const QUARTER2_LESSON_FILTERS: readonly LessonFilterOption[] = [

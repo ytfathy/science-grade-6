@@ -31,7 +31,7 @@ export const QUARTERS_META: QuarterMeta[] = [
       {
         id: 1,
         title: 'Lesson 1: Chemical Reactions',
-        subtitle: 'Physical Changes vs. Chemical Reactions · Video Lab, Glossary & 13 Test Questions',
+        subtitle: 'Physical Changes vs. Chemical Reactions · Video Lab, Glossary & 24 Test Questions',
         available: true,
         badgeLabel: 'Lab · Glossary · Test',
       },
